@@ -10,6 +10,7 @@ contract ManualToken {
     uint256 public totalSupply;
 
     mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
 
     /**
      * Constructor function
