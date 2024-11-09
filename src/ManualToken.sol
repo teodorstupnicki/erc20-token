@@ -9,6 +9,8 @@ contract ManualToken {
     // 18 decimals is the strongly suggested default, avoid changing it
     uint256 public totalSupply;
 
+    mapping(address => uint256) public balanceOf;
+
     /**
      * Constructor function
      *
