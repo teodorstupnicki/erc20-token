@@ -11,21 +11,24 @@ interface tokenRecipient {
 }
 
 contract ManualToken {
-    // Public variables of the token
     string public name;
     string public symbol;
     uint8 public decimals = 18;
-    // 18 decimals is the strongly suggested default, avoid changing it
     uint256 public totalSupply;
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    /**
-     * Constructor function
-     *
-     * Initializes contract with initial supply tokens to the creator of the contract
-     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    event Approval(
+        address indexed _owner,
+        address indexed _spender,
+        uint256 _value
+    );
+
+    event Burn(address indexed from, uint256 value);
+
     constructor(
         uint256 initialSupply,
         string memory tokenName,
